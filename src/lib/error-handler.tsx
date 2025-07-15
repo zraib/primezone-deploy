@@ -590,13 +590,13 @@ export function withErrorBoundary<T extends Record<string, any>>(
       const handleError = (event: ErrorEvent) => {
         setHasError(true);
         setError(new Error(event.message));
-        errorHandler.handleError(new Error(event.message));
+        errorHandler.handle(new Error(event.message));
       };
 
       const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
         setHasError(true);
         setError(new Error(event.reason));
-        errorHandler.handleError(new Error(event.reason));
+        errorHandler.handle(new Error(event.reason));
       };
 
       window.addEventListener('error', handleError);

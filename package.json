@@ -21,6 +21,7 @@
     "type-check": "tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "validate:amplify": "node scripts/validate-amplify-config.js",
     "prepare": "husky install"
   },
   "dependencies": {

@@ -78,10 +78,10 @@ Use this checklist to ensure a successful deployment of the Panorama Viewer appl
 
 ### ✅ Step 6: Environment Variables (Amplify Console)
 - [ ] Add in Amplify Console → App Settings → Environment Variables:
-  - [ ] `AWS_REGION`
-  - [ ] `AWS_S3_BUCKET_NAME`
-  - [ ] `NEXT_PUBLIC_AWS_REGION`
-  - [ ] `NEXT_PUBLIC_AWS_S3_BUCKET_NAME`
+  - [ ] `S3_REGION`
+  - [ ] `S3_BUCKET_NAME`
+  - [ ] `NEXT_PUBLIC_S3_REGION`
+  - [ ] `NEXT_PUBLIC_S3_BUCKET_NAME`
   - [ ] `NODE_ENV=production`
 
 ## 🔧 Post-Deployment Configuration

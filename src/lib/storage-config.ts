@@ -24,7 +24,7 @@ export class StorageConfigManager {
    */
   static initialize(): StorageConfig {
     const isProduction = process.env.NODE_ENV === 'production';
-    const hasS3Config = !!(process.env.AWS_S3_BUCKET_NAME && process.env.AWS_REGION);
+    const hasS3Config = !!(process.env.S3_BUCKET_NAME && process.env.S3_REGION);
     
     // Use S3 in production if configured, otherwise use local storage
     const mode: 'local' | 's3' = (isProduction && hasS3Config) ? 's3' : 'local';
@@ -32,8 +32,8 @@ export class StorageConfigManager {
     this.config = {
       mode,
       s3Config: hasS3Config ? {
-        bucket: process.env.AWS_S3_BUCKET_NAME!,
-        region: process.env.AWS_REGION!,
+        bucket: process.env.S3_BUCKET_NAME!,
+    region: process.env.S3_REGION!,
         customDomain: process.env.NEXT_PUBLIC_S3_CUSTOM_DOMAIN,
       } : undefined,
       localConfig: {
@@ -169,10 +169,10 @@ export class StorageConfigManager {
   } {
     const missing: string[] = [];
     
-    if (!process.env.AWS_S3_BUCKET_NAME) missing.push('AWS_S3_BUCKET_NAME');
-    if (!process.env.AWS_REGION) missing.push('AWS_REGION');
-    if (!process.env.AWS_ACCESS_KEY_ID) missing.push('AWS_ACCESS_KEY_ID');
-    if (!process.env.AWS_SECRET_ACCESS_KEY) missing.push('AWS_SECRET_ACCESS_KEY');
+    if (!process.env.S3_BUCKET_NAME) missing.push('S3_BUCKET_NAME');
+  if (!process.env.S3_REGION) missing.push('S3_REGION');
+  if (!process.env.S3_ACCESS_KEY_ID) missing.push('S3_ACCESS_KEY_ID');
+  if (!process.env.S3_SECRET_ACCESS_KEY) missing.push('S3_SECRET_ACCESS_KEY');
     
     return {
       valid: missing.length === 0,

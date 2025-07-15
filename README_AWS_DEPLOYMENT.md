@@ -96,14 +96,14 @@ Panor-viewer/
 Create `.env.local` file:
 ```env
 # AWS Configuration
-AWS_REGION=us-east-1
-AWS_ACCESS_KEY_ID=your_access_key
-AWS_SECRET_ACCESS_KEY=your_secret_key
-AWS_S3_BUCKET_NAME=panorama-viewer-storage-dev
+S3_REGION=us-east-1
+S3_ACCESS_KEY_ID=your_access_key
+S3_SECRET_ACCESS_KEY=your_secret_key
+S3_BUCKET_NAME=panorama-viewer-storage-dev
 
 # Public Configuration
-NEXT_PUBLIC_AWS_REGION=us-east-1
-NEXT_PUBLIC_AWS_S3_BUCKET_NAME=panorama-viewer-storage-dev
+NEXT_PUBLIC_S3_REGION=us-east-1
+NEXT_PUBLIC_S3_BUCKET_NAME=panorama-viewer-storage-dev
 
 # Optional
 NEXT_PUBLIC_S3_CUSTOM_DOMAIN=cdn.yourdomain.com
@@ -113,10 +113,10 @@ NODE_ENV=production
 ### Amplify Console Environment Variables
 
 In AWS Amplify Console, add these environment variables:
-- `AWS_REGION`
-- `AWS_S3_BUCKET_NAME`
-- `NEXT_PUBLIC_AWS_REGION`
-- `NEXT_PUBLIC_AWS_S3_BUCKET_NAME`
+- `S3_REGION`
+- `S3_BUCKET_NAME`
+- `NEXT_PUBLIC_S3_REGION`
+- `NEXT_PUBLIC_S3_BUCKET_NAME`
 - `NODE_ENV=production`
 
 ## 📦 File Upload Architecture
@@ -281,8 +281,8 @@ Required IAM permissions for Amplify service role:
 2. **Test S3 Integration**
    ```bash
    # Set environment variables
-   export AWS_REGION=us-east-1
-   export AWS_S3_BUCKET_NAME=your-test-bucket
+   export S3_REGION=us-east-1
+   export S3_BUCKET_NAME=your-test-bucket
    
    # Test upload
    npm run dev

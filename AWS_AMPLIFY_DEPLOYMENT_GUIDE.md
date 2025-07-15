@@ -98,13 +98,13 @@ cp .env.example .env.local
 
 Update the values in `.env.local`:
 ```env
-AWS_REGION=us-east-1
-AWS_ACCESS_KEY_ID=your_access_key_here
-AWS_SECRET_ACCESS_KEY=your_secret_key_here
-AWS_S3_BUCKET_NAME=panorama-viewer-storage-dev
+S3_REGION=us-east-1
+S3_ACCESS_KEY_ID=your_access_key_here
+S3_SECRET_ACCESS_KEY=your_secret_key_here
+S3_BUCKET_NAME=panorama-viewer-storage-dev
 
-NEXT_PUBLIC_AWS_REGION=us-east-1
-NEXT_PUBLIC_AWS_S3_BUCKET_NAME=panorama-viewer-storage-dev
+NEXT_PUBLIC_S3_REGION=us-east-1
+NEXT_PUBLIC_S3_BUCKET_NAME=panorama-viewer-storage-dev
 
 NODE_ENV=production
 ```
@@ -170,10 +170,10 @@ Modify your upload logic to use the new S3 API endpoints:
          - .next/cache/**/*
    ```
 5. Add environment variables in Amplify Console:
-   - `AWS_REGION`
-   - `AWS_S3_BUCKET_NAME`
-   - `NEXT_PUBLIC_AWS_REGION`
-   - `NEXT_PUBLIC_AWS_S3_BUCKET_NAME`
+   - `S3_REGION`
+   - `S3_BUCKET_NAME`
+   - `NEXT_PUBLIC_S3_REGION`
+   - `NEXT_PUBLIC_S3_BUCKET_NAME`
 
 ### Option B: Manual Deployment
 

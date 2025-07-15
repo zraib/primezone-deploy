@@ -3,21 +3,21 @@ const nextConfig = {
   reactStrictMode: true,
   // Environment variables
   env: {
-    AWS_REGION: process.env.AWS_REGION,
-    AWS_S3_BUCKET_NAME: process.env.AWS_S3_BUCKET_NAME,
+    S3_REGION: process.env.S3_REGION,
+    S3_BUCKET_NAME: process.env.S3_BUCKET_NAME,
   },
   // Public runtime config for client-side access
   publicRuntimeConfig: {
-    AWS_REGION: process.env.NEXT_PUBLIC_AWS_REGION,
-    AWS_S3_BUCKET_NAME: process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME,
+    S3_REGION: process.env.NEXT_PUBLIC_S3_REGION,
+    S3_BUCKET_NAME: process.env.NEXT_PUBLIC_S3_BUCKET_NAME,
     S3_CUSTOM_DOMAIN: process.env.NEXT_PUBLIC_S3_CUSTOM_DOMAIN,
   },
   // Image optimization for S3 images
   images: {
     domains: [
       's3.amazonaws.com',
-      `${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com`,
-      `${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.${process.env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com`,
+      `${process.env.NEXT_PUBLIC_S3_BUCKET_NAME}.s3.amazonaws.com`,
+      `${process.env.NEXT_PUBLIC_S3_BUCKET_NAME}.s3.${process.env.NEXT_PUBLIC_S3_REGION}.amazonaws.com`,
     ].filter(Boolean),
     remotePatterns: [
       {

@@ -249,7 +249,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       projectId,
       uploadedFiles,
       totalImages: uploadedFiles.images.length,
-      s3Bucket: process.env.AWS_S3_BUCKET_NAME
+      s3Bucket: process.env.S3_BUCKET_NAME
     });
 
   } catch (error) {

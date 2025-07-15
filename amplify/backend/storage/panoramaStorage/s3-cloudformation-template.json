@@ -46,9 +46,6 @@
     },
     "env": {
       "Type": "String"
-    },
-    "region": {
-      "Type": "String"
     }
   },
   "Conditions": {

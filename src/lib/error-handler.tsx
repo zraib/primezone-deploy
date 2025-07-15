@@ -7,6 +7,13 @@ import React from 'react';
 import { logger } from './logger';
 import { config } from './environment';
 
+// TypeScript declaration for Node.js Error.captureStackTrace
+declare global {
+  interface ErrorConstructor {
+    captureStackTrace?(targetObject: object, constructorOpt?: Function): void;
+  }
+}
+
 // Error Types
 export enum ErrorType {
   VALIDATION = 'VALIDATION_ERROR',

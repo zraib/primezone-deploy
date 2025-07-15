@@ -1,14 +1,14 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-panoramaviewer-dev-authRole",
-      "UnauthRoleName": "amplify-panoramaviewer-dev-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::ACCOUNT-ID:role/amplify-panoramaviewer-dev-authRole",
-      "UnauthRoleArn": "arn:aws:iam::ACCOUNT-ID:role/amplify-panoramaviewer-dev-unauthRole",
-      "DeploymentBucketName": "amplify-panoramaviewer-dev-deployment",
+      "AuthRoleName": "amplify-primezonedeploy1-develop-authRole",
+      "UnauthRoleName": "amplify-primezonedeploy1-develop-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::ACCOUNT-ID:role/amplify-primezonedeploy1-develop-authRole",
+      "UnauthRoleArn": "arn:aws:iam::ACCOUNT-ID:role/amplify-primezonedeploy1-develop-unauthRole",
+      "DeploymentBucketName": "amplify-primezonedeploy1-develop-d8c3e-deployment",
       "Region": "us-east-1",
-      "StackName": "amplify-panoramaviewer-dev",
-      "StackId": "arn:aws:cloudformation:us-east-1:ACCOUNT-ID:stack/amplify-panoramaviewer-dev/STACK-ID"
+      "StackName": "amplify-primezonedeploy1-develop",
+      "StackId": "arn:aws:cloudformation:us-east-1:ACCOUNT-ID:stack/amplify-primezonedeploy1-develop/STACK-ID"
     }
   },
   "storage": {

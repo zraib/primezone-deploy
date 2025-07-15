@@ -1,0 +1,22 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-panoramaviewer-dev-authRole",
+      "UnauthRoleName": "amplify-panoramaviewer-dev-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::ACCOUNT-ID:role/amplify-panoramaviewer-dev-authRole",
+      "UnauthRoleArn": "arn:aws:iam::ACCOUNT-ID:role/amplify-panoramaviewer-dev-unauthRole",
+      "DeploymentBucketName": "amplify-panoramaviewer-dev-deployment",
+      "Region": "us-east-1",
+      "StackName": "amplify-panoramaviewer-dev",
+      "StackId": "arn:aws:cloudformation:us-east-1:ACCOUNT-ID:stack/amplify-panoramaviewer-dev/STACK-ID"
+    },
+    "categories": {
+      "storage": {
+        "panoramaStorage": {
+          "bucketName": "panorama-viewer-storage",
+          "region": "us-east-1"
+        }
+      }
+    }
+  }
+}

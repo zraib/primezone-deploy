@@ -1,0 +1,23 @@
+{
+  "storage": {
+    "panoramaStorage": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
+    }
+  },
+  "function": {
+    "panoramaUpload": {
+      "service": "Lambda",
+      "providerPlugin": "awscloudformation",
+      "build": true,
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "panoramaStorage",
+          "attributes": ["BucketName"]
+        }
+      ]
+    }
+  }
+}

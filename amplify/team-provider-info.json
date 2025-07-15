@@ -18,5 +18,25 @@
         }
       }
     }
+  },
+  "develop": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-primezonedeploy1-develop-authRole",
+      "UnauthRoleName": "amplify-primezonedeploy1-develop-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::ACCOUNT-ID:role/amplify-primezonedeploy1-develop-authRole",
+      "UnauthRoleArn": "arn:aws:iam::ACCOUNT-ID:role/amplify-primezonedeploy1-develop-unauthRole",
+      "DeploymentBucketName": "amplify-primezonedeploy1-develop-d8c3e-deployment",
+      "Region": "us-east-1",
+      "StackName": "amplify-primezonedeploy1-develop",
+      "StackId": "arn:aws:cloudformation:us-east-1:ACCOUNT-ID:stack/amplify-primezonedeploy1-develop/STACK-ID"
+    },
+    "categories": {
+      "storage": {
+        "panoramaStorage": {
+          "bucketName": "panorama-viewer-storage-develop",
+          "region": "us-east-1"
+        }
+      }
+    }
   }
 }

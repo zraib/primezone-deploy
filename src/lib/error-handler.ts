@@ -25,25 +25,37 @@ export class RateLimitError extends Error {
   public readonly code: string;
   public readonly statusCode: number;
   public readonly retryAfter?: number;
+  public readonly details?: any;
+  public readonly requestId?: string;
 
-  constructor(message: string = 'Rate limit exceeded', retryAfter?: number) {
+  constructor(message: string = 'Rate limit exceeded', details?: any, requestId?: string) {
     super(message);
     this.name = 'RateLimitError';
     this.code = 'RATE_LIMIT_EXCEEDED';
     this.statusCode = 429;
-    this.retryAfter = retryAfter;
+    this.details = details;
+    this.requestId = requestId;
+    
+    // Extract retryAfter from details if provided
+    if (details && typeof details === 'object' && 'resetTime' in details) {
+      this.retryAfter = Math.ceil((details.resetTime - Date.now()) / 1000);
+    }
   }
 }
 
 export class AuthenticationError extends Error {
   public readonly code: string;
   public readonly statusCode: number;
+  public readonly details?: any;
+  public readonly requestId?: string;
 
-  constructor(message: string = 'Authentication required') {
+  constructor(message: string = 'Authentication required', details?: any, requestId?: string) {
     super(message);
     this.name = 'AuthenticationError';
     this.code = 'AUTHENTICATION_ERROR';
     this.statusCode = 401;
+    this.details = details;
+    this.requestId = requestId;
   }
 }
 
@@ -144,10 +156,14 @@ export function errorHandler(
     statusCode = error.statusCode;
     errorCode = error.code;
     errorType = error.name;
+    details = error.details;
+    requestId = requestId || error.requestId;
   } else if (error instanceof AuthenticationError) {
     statusCode = error.statusCode;
     errorCode = error.code;
     errorType = error.name;
+    details = error.details;
+    requestId = requestId || error.requestId;
   } else if (error instanceof AuthorizationError) {
     statusCode = error.statusCode;
     errorCode = error.code;

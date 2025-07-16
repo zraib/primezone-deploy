@@ -525,18 +525,13 @@ export class ApiMiddleware {
     request: ApiRequest,
     requestLogger: ReturnType<typeof createRequestLogger>
   ): NextResponse {
-    const appError = errorHandler.handleError(error, request.requestId, request.user?.id);
-    const errorResponse = errorHandler.createErrorResponse(appError);
-
     requestLogger.error('API request failed', {
-      error: appError,
+      error: error.message,
+      stack: error.stack,
       duration: Date.now() - request.startTime,
     });
 
-    const response = NextResponse.json(errorResponse, {
-      status: appError.statusCode,
-    });
-
+    const response = errorHandler(error, request.requestId, true);
     this.addStandardHeaders(response, request);
     return response;
   }

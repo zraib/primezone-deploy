@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs';
 import path from 'path';
 import { promisify } from 'util';
+import { environmentManager } from '../../lib/environment';
 
 const readdir = promisify(fs.readdir);
 const stat = promisify(fs.stat);
@@ -112,8 +113,31 @@ const deleteProjectRecursively = async (dirPath: string): Promise<void> => {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { method } = req;
+  const timestamp = new Date().toISOString();
   
   try {
+    // Validate environment configuration
+    const envValidation = environmentManager.getValidationResult();
+    if (!envValidation.isValid) {
+      console.error(`[${timestamp}] Environment validation failed:`, envValidation.errors);
+      return res.status(500).json({
+        error: 'Server configuration error',
+        timestamp,
+        details: process.env.NODE_ENV === 'development' ? envValidation.errors : undefined,
+      });
+    }
+    
+    console.log(`[${timestamp}] ${method} /api/projects`, {
+      method: req.method,
+      body: req.body,
+      query: req.query,
+      headers: {
+        'content-type': req.headers['content-type'],
+        'user-agent': req.headers['user-agent'],
+        origin: req.headers.origin,
+      },
+    });
+    
     switch (method) {
       case 'GET':
         // List all projects

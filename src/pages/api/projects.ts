@@ -200,10 +200,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(405).json({ error: `Method ${method} not allowed` });
     }
   } catch (error: any) {
-    console.error('Projects API error:', error);
+    console.error('Projects API error:', {
+      message: error.message,
+      stack: error.stack,
+      method: req.method,
+      body: req.body,
+      query: req.query,
+      headers: req.headers,
+      timestamp: new Date().toISOString()
+    });
     res.status(500).json({ 
       error: 'Internal server error',
-      details: process.env.NODE_ENV === 'development' ? error.message : undefined
+      details: process.env.NODE_ENV === 'development' ? error.message : undefined,
+      timestamp: new Date().toISOString()
     });
   }
 }

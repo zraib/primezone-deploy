@@ -197,9 +197,9 @@ class EnvironmentManager {
       case 'development':
         return ['http://localhost:3000', 'http://127.0.0.1:3000'];
       case 'staging':
-        return ['https://staging.your-domain.com'];
+        return ['https://develop.d2braczm9052xz.amplifyapp.com'];
       case 'production':
-        return ['https://your-domain.com'];
+        return ['https://develop.d2braczm9052xz.amplifyapp.com', '*'];
       default:
         return ['http://localhost:3000'];
     }
